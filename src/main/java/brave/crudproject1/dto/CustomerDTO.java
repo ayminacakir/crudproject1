@@ -1,4 +1,4 @@
-package brave.crudproject1.dto.customer;
+package brave.crudproject1.dto;
 
 
 import lombok.AllArgsConstructor;

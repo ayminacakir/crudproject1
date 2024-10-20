@@ -1,6 +1,6 @@
 package brave.crudproject1.services;
 
-import brave.crudproject1.dto.customer.CustomerDTO;
+import brave.crudproject1.dto.CustomerDTO;
 import brave.crudproject1.entities.Customer;
 import brave.crudproject1.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,6 +1,6 @@
 package brave.crudproject1.services;
 
-import brave.crudproject1.dto.customer.OrderDTO;
+import brave.crudproject1.dto.OrderDTO;
 import brave.crudproject1.entities.Customer;
 import brave.crudproject1.entities.Order;
 import brave.crudproject1.repositories.CustomerRepository;

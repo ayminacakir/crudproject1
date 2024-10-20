@@ -1,6 +1,6 @@
 package brave.crudproject1.controllers;
 
-import brave.crudproject1.dto.customer.OrderDTO;
+import brave.crudproject1.dto.OrderDTO;
 import brave.crudproject1.entities.Order;
 import brave.crudproject1.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
