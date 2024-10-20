@@ -1,11 +1,14 @@
 package brave.crudproject1.controllers;
 
+import brave.crudproject1.dto.customer.OrderDTO;
 import brave.crudproject1.entities.Customer;
 import brave.crudproject1.entities.Order;
 import brave.crudproject1.repositories.CustomerRepository;
 import brave.crudproject1.repositories.OrderRepository;
 import brave.crudproject1.services.OrderService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -20,10 +23,9 @@ public class OrderController {
     private OrderService orderService;
 
     @PostMapping("/{customerId}")
-    public Order createOrder(@PathVariable Long customerId) {
-        return orderService.addOrder(customerId);
+    public ResponseEntity<String> createOrder(@RequestBody OrderDTO orderDTO) {
+        return ResponseEntity.status(HttpStatus.CREATED).body("Order created successfully");
     }
-
     @GetMapping
     public List<Order> getAllOrders() {
         return orderService.getAllOrders();

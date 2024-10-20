@@ -1,15 +1,16 @@
-package brave.crudproject1.dto.requestdto.create;
+package brave.crudproject1.dto.customer;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Getter
-@Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class CreateCustomerRequest {
+@Getter
+@Setter
+public class CustomerDTO {
     private String name;
     private String email;
     private String phone;
