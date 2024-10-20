@@ -4,7 +4,6 @@ import brave.crudproject1.dto.customer.CustomerDTO;
 import brave.crudproject1.entities.Customer;
 import brave.crudproject1.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,26 +20,28 @@ public class CustomerController {
     public List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
     }
+
     @GetMapping("/{id}")
-    public Customer getCustomerById(@PathVariable Long id) {
-        return customerService.getCustomerById(id);
+    public ResponseEntity<Customer> getCustomerById(@PathVariable Long id) {
+        Customer customer = customerService.getCustomerById(id);
+        return ResponseEntity.ok(customer);
     }
     @PostMapping
-    public ResponseEntity<String> createCustomer(@RequestBody CustomerDTO customerDTO) {
-        String name = customerDTO.getName();
-        String email = customerDTO.getEmail();
-        String phone = customerDTO.getPhone();
-
-        customerService.createCustomer(customerDTO);
-
-        return ResponseEntity.status(HttpStatus.CREATED).body("Customer created successfully");
+    public Customer createCustomer(@RequestBody CustomerDTO customerDTO) {
+        return customerService.createCustomer(customerDTO);
     }
-    @PutMapping
-    public Customer updateCustomer(@PathVariable Long id) {
-        return customerService.updateCustomer(id);
+    @PutMapping("/{id}")
+    public ResponseEntity<Customer> updateCustomer(
+            @PathVariable Long id,
+            @RequestBody CustomerDTO customerDTO) {
+        Customer updatedCustomer = customerService.updateCustomer(id, customerDTO);
+        return ResponseEntity.ok(updatedCustomer) ;
     }
     @DeleteMapping("/{id}")
-    public void deleteCustomer(@PathVariable Long id) {
+    public ResponseEntity<Void> deleteCustomer(@PathVariable Long id) {
         customerService.deleteCustomer(id);
+        return ResponseEntity.noContent().build();
     }
 }
+
+

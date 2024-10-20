@@ -1,5 +1,6 @@
 package brave.crudproject1.services;
 
+import brave.crudproject1.dto.customer.CustomerDTO;
 import brave.crudproject1.entities.Customer;
 import brave.crudproject1.repositories.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,15 +22,23 @@ public class CustomerService { // Bu sınıf, müşteri verileri üzerinde CRUD 
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
     }
 
-    public Customer createCustomer(Customer customer) {
+    public Customer createCustomer(CustomerDTO customerDTO) {
+        Customer customer = new Customer();
+        customer.setName(customerDTO.getName());
+        customer.setEmail(customerDTO.getEmail());
+        // Diğer alanları da ekleyin.
+
         return customerRepository.save(customer);
     }
 
-    public Customer updateCustomer(Long id){
+    public Customer updateCustomer(Long id, CustomerDTO customerDTO){
         return customerRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Customer not found"));
             }
     public void deleteCustomer(Long id) {
+        if (!customerRepository.existsById(id)) {
+            throw new RuntimeException("Customer not found");
+        }
         customerRepository.deleteById(id);
     }
 }
