@@ -4,6 +4,7 @@ import brave.crudproject1.dto.customer.CustomerDTO;
 import brave.crudproject1.entities.Customer;
 import brave.crudproject1.services.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -25,13 +26,15 @@ public class CustomerController {
         return customerService.getCustomerById(id);
     }
     @PostMapping
-    public ResponseEntity<String> createCustomer(@RequestBody CustomerDTO customerDTO){
-        String name =customerDTO.getName();
+    public ResponseEntity<String> createCustomer(@RequestBody CustomerDTO customerDTO) {
+        String name = customerDTO.getName();
         String email = customerDTO.getEmail();
+        String phone = customerDTO.getPhone();
 
-        return ResponseEntity.ok("Customer created successfully");
+        customerService.createCustomer(customerDTO);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body("Customer created successfully");
     }
-
     @PutMapping
     public Customer updateCustomer(@PathVariable Long id) {
         return customerService.updateCustomer(id);
