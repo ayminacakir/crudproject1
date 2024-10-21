@@ -26,7 +26,7 @@ public class CustomerService { // Bu sınıf, müşteri verileri üzerinde CRUD 
         Customer customer = new Customer();
         customer.setName(customerDTO.getName());
         customer.setEmail(customerDTO.getEmail());
-        // Diğer alanları da ekleyin.
+        customer.setPhone(customerDTO.getPhone());
 
         return customerRepository.save(customer);
     }
