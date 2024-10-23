@@ -24,7 +24,7 @@ public class OrderService {
         Order order = new Order();
         order.setOrderDate(LocalDate.now());
 
-        // Müşteriyi bul ve siparişe ata
+
         Customer customer = customerRepository.findById(customerId)
                 .orElseThrow(() -> new RuntimeException("Customer not found"));
         order.setCustomer(customer);
