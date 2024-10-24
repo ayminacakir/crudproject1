@@ -14,5 +14,6 @@ public class SellersDTO {
     private String sellerAdress;
     private String sellerPhone;
     private String productName;
+    private Long productId;
 }
 
