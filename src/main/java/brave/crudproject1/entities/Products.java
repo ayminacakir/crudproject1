@@ -15,4 +15,8 @@ public class Products {
     private String productName;
     private String categoryName;
     private String SellerName;
+
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Categories categories;
 }

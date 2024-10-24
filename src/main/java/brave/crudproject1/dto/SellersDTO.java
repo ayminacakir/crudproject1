@@ -13,5 +13,6 @@ public class SellersDTO {
     private String sellerName;
     private String sellerAdress;
     private String sellerPhone;
+    private String productName;
 }
 

@@ -14,4 +14,5 @@ public class ProductsDTO {
     private String productName;
     private String categoryName;
     private String sellerName;
+    private String categoryId;
 }

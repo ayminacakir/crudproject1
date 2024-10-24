@@ -15,4 +15,8 @@ public class Sellers {
     private String sellerName;
     private String sellerAdress;
     private String sellerPhone;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Products products;
 }
