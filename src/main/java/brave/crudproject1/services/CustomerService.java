@@ -13,7 +13,7 @@ public class CustomerService { // Bu sınıf, müşteri verileri üzerinde CRUD 
     @Autowired
     private CustomerRepository customerRepository; /* Bu örnekte CustomerRepository otomatik olarak enjekte edilmemiş, yani @Autowired kullanılarak dependency injection yapılmamış. Bağımlılık enjeksiyonu eklenirse daha iyi olur.ekledim.*/
 
-    public List<Customer> getAllCustomers() {
+    public List<Customer> getAllCustomers()  {
         return customerRepository.findAll();
     }
 

@@ -12,7 +12,7 @@ public class Sellers {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String seller_name;
-    private String seller_adress;
-    private String seller_phone;
+    private String sellerName;
+    private String sellerAdress;
+    private String sellerPhone;
 }

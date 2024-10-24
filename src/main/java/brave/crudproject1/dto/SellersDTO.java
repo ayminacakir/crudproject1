@@ -10,8 +10,8 @@ import lombok.Setter;
 @Getter
 @Setter
 public class SellersDTO {
-    private String productName;
-    private String categoryName;
-    private String SellerName;
+    private String sellerName;
+    private String sellerAdress;
+    private String sellerPhone;
 }
 
