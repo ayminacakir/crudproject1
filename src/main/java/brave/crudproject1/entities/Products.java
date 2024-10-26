@@ -15,6 +15,7 @@ public class Products {
     private String productName;
     private String categoryName;
     private String SellerName;
+    private int stockQuantity;
 
     @ManyToOne
     @JoinColumn(name = "category_id")

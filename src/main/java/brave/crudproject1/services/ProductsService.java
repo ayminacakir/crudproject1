@@ -19,10 +19,19 @@ public class ProductsService {
         return productsRepository.findAll();
     }
     public Products getProductById(Long id){
-        return productsRepository.findById(id)
+        Products product = productsRepository.findById(id)
                 .orElseThrow(()-> new RuntimeException("Product not found"));
+    int stockQuantity = productsRepository.findStockQuantityById(id); //Stok miktarını kontrol eden bir koşul ekledim. metot çağrılırken id değerini giriyorum.
+    if (stockQuantity <= 0){
+        throw new RuntimeException("Product is out of stock");
+    }
+    return product;
     }
     public Products createProducts(ProductsDTO productsDTO){
+       if(!productsRepository.existsByCategoryName(productsDTO.getCategoryName())){ //var olan bir kategoriye ürün yaratmak istedim.Kategori yoksa exception fırlattım.
+           throw new RuntimeException("Category"+productsDTO.getProductName()+"doesn't exit.");
+       }
+
         Products products = new Products();
         products.setProductName(productsDTO.getProductName());
         products.setCategoryName(productsDTO.getCategoryName());
