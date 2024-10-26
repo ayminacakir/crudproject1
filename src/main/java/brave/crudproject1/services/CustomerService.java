@@ -43,11 +43,11 @@ public class CustomerService { // Bu sınıf, müşteri verileri üzerinde CRUD 
             throw new RuntimeException("Email" + customerDTO.getEmail() + "is already in use by another customer.");
         }
     //if kontrolünden sonra set metodlarının kullanılmasının sebebi, güncelleme işleminden önce gerekli doğrulamaları yapmaktır.
-        customer.setName(customerDTO.getName()); ////Bu satırlarda, customerDTO içindeki güncellenmiş bilgiler mevcut müşteri kaydına atanır.
+        customer.setName(customerDTO.getName()); //Bu satırlarda, customerDTO içindeki güncellenmiş bilgiler mevcut müşteri kaydına atanır.
         customer.setEmail(customerDTO.getEmail());
         customer.setPhone(customerDTO.getPhone());
 
-        return customerRepository.save(customer);////Müşteri Kaydını veritabanında güncelledim.
+        return customerRepository.save(customer);//Müşteri Kaydını veritabanında güncelledim.
     }
 
     public void deleteCustomer(Long id) {
