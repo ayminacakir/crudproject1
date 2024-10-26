@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class CustomerService { // Bu sınıf, müşteri verileri üzerinde CRUD (Create, Read, Update, Delete) işlemlerini gerçekleştirmek için kullanılır:
     @Autowired
-    private CustomerRepository customerRepository; /* Bu örnekte CustomerRepository otomatik olarak enjekte edilmemiş, yani @Autowired kullanılarak dependency injection yapılmamış. Bağımlılık enjeksiyonu eklenirse daha iyi olur.ekledim.*/
+    private CustomerRepository customerRepository; /*@Autowired kullanılarak dependency injection yaptım.*/
 
     public List<Customer> getAllCustomers()  {
         return customerRepository.findAll();
